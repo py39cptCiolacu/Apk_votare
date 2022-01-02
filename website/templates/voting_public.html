@@ -1,0 +1,58 @@
+{% extends "base.html" %} {% block title %}Voting{% endblock %}
+
+{% block content %}
+
+
+<style>
+    .meciul1 {
+      border: 5px outset red;
+      width: 500px;
+      height: 500px;
+      background-color: lightblue;
+      text-align: center;
+      display: inline-block;
+    }
+</style>
+
+<style>
+    .meciul2 {
+      border: 5px outset red;
+      width: 500px;
+      height: 500px;
+      background-color: lightblue;
+      text-align: center;
+      display: inline-block;
+    }
+</style>
+
+<br><br><br>
+
+
+<form method='post'>
+  <div class="meciulA">
+      <h1> Alege cine ti a placut mai mult din meciul 1 </h1>
+
+      <label for="echipeA">Alege o echipa</label>
+
+      <select name="echipeA" id="echipe1">
+        <option value="1">Prima Echipa</option>
+        <option value="2">A doua Echipa</option>
+      </select>
+  </div>
+
+  <div class="meciulB">
+      <h1> Alege cine ti a placut mai mult din meciul 2 </h1>
+
+
+      <label for="echipeB">Alege o echipa</label>
+
+      <select name="echipeB" id="echipe1">
+        <option value="1">Prima Echipa</option>
+        <option value="2">A doua Echipa</option>
+      </select>
+  </div>
+  <button type="submit" class="btn btn-primary">Finalizeaza votarea</button>
+</form>
+
+
+{% endblock %}

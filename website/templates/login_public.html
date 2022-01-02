@@ -1,0 +1,18 @@
+{% extends "base.html" %} {% block title %}Login Public{% endblock %} {% block content
+    %}
+    <form method="POST">
+      <h3 align="center">Login Public</h3>
+      <div class="form-group">
+        <label for="password">Parola Public</label>
+        <input
+          type="password"
+          class="form-control"
+          id="password_public"
+          name="password_public"
+          placeholder="Enter password"
+        />
+      </div>
+      <br />
+      <button type="submit" class="btn btn-primary">Spre Votare</button>
+    </form>
+    {% endblock %}

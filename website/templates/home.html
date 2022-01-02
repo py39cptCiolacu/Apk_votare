@@ -1,0 +1,26 @@
+{% extends "base.html" %} {% block title %} HOME {% endblock %} {% block content%}
+
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbar"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbar">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link" id="login_jury" href="/login_jury"> SUNT JURAT </a>
+        <a class="nav-item nav-link" id="login_public" href="/login_public"> SUNT DIN PUBLIC (SI SUNT IN SALA) </a>
+        <a class="nav-item nav-link" id="login_public" href="/login_public_online"> SUNT DIN PUBLIC (SI SUNT PE LIVE) </a>
+      </div>
+    </div>
+  </nav>
+
+
+  <h3 align = "center"> REGULI DE VOTARE SI ALTE CHESTII DE GENUL</h3>
+
+  {%  endblock %}

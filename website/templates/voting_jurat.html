@@ -1,0 +1,52 @@
+{% extends "base.html" %} {% block title %}Voting{% endblock %}
+
+{% block content %}
+
+
+<style>
+    .meciul1 {
+      border: 5px outset red;
+      width: 500px;
+      height: 500px;
+      background-color: lightblue;
+      text-align: center;
+      display: inline-block;
+    }
+</style>
+
+<style>
+    .meciul2 {
+      border: 5px outset red;
+      width: 500px;
+      height: 500px;
+      background-color: lightblue;
+      text-align: center;
+      display: inline-block;
+    }
+</style>
+
+<br><br><br>
+
+<div class="meciul1">
+    <h1> Alege cine ti a placut mai mult din meciul 1 </h1>
+
+    <select name="meciul1" id="meciul1">
+        <option value="echipa1">Echipa 1</option>
+        <option value="echipa2">Echipa 2</option>
+      </select>
+</div>
+
+<div class="meciul2">
+    <h1> Alege cine ti a placut mai mult din meciul 2 </h1>
+
+    <select name="meciul1" id="meciul1">
+        <option value="echipa1">Echipa 1</option>
+        <option value="echipa2">Echipa 2</option>
+      </select>
+</div>
+
+<br>
+<br>
+<button type="submit" class="btn btn-primary">Finalizeaza votarea</button>
+
+{% endblock %}
