@@ -16,6 +16,7 @@ def generator():
             parola += random.choice(litere)
         for j in range(3):
             parola += random.choice(cifre)
+
         parole.write(parola + "\n")
         parola = ''
     
