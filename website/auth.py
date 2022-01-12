@@ -1,7 +1,7 @@
-from flask import Blueprint, render_template, request, redirect, flash, url_for, session
+from functools import cache
+from flask import Blueprint, render_template, request, redirect, flash, url_for, session, Flask
 from . import db
-import time
-import sys
+
 
 auth = Blueprint('auth', __name__)
 
@@ -9,14 +9,14 @@ auth = Blueprint('auth', __name__)
 @auth.route('/login_jury', methods=['GET', 'POST'])
 def login_jury():
 
-    jurati = {"NumePrenume1" : "parola1", "NumePrenume2": "parola2"} #se pot pune intr o baza de date
+    jurati = {"NumePrenume1" : "parola1", "NumePrenume2": "parola2"} 
 
     if request.method == 'POST':
             id_juriu = request.form.get('id_juriu')
             parola_jurat = request.form.get('password')
-
             if id_juriu in jurati and jurati[id_juriu] == parola_jurat:
-                return redirect(url_for('views.voting'))
+                session['jurat'] = id_juriu
+                return redirect(url_for('views.voting_jurat'))
             else:
                 flash('Incorrect password, try again.', category='error')
 
@@ -38,15 +38,28 @@ def login_public_online():
 def login_public():
 
     parole = open('parole.txt', 'r')
-    #parole_folosite = open('parole_folosite.txt', 'w')
     content_parole = parole.read() #parolele se pot pune intr o baza de date
 
     if request.method == 'POST':
-            password_public = request.form.get('password_public')
-
-            if password_public in content_parole:
-                return redirect(url_for('views.voting'))
+            parola = request.form.get('password_public')
+            if parola in content_parole:
+                session['parola'] = parola
+                return redirect(url_for('views.voting_public_sala'))
+            elif parola == "suntADMIN89":
+                return redirect(url_for('auth.adminCPT'))
             else:
                 flash('Parola incorecta, incearca din nou', category='error')
 
     return render_template("login_public.html")
+
+@auth.route('/adminCPT', methods = ['GET', 'POST'])
+def adminCPT():
+
+    #voi avea un buton pentru a afisa rezultatele
+    #voi seta timpul maxim de votare
+
+    if request.method == 'POST':
+        ora = request.form.get('ora')
+        session['ora'] = ora
+
+    return render_template('admin.html')

@@ -1,0 +1,27 @@
+{% extends "base.html" %} {% block title %}Results Loading{% endblock %}
+
+{%block content%}
+
+<h1> Rezultatele vor apărea dupa ora {{x}}. <h1>
+<h1> Reîncarcă pagina atunci pentru a le vedea. <h1>
+
+    <div class="loader"></div>
+
+    <style>
+    .loader {
+        border: 16px solid #f3f3f3; /* Light grey */
+        border-top: 16px solid #3498db; /* Blue */
+        border-radius: 50%;
+        width: 120px;
+        height: 120px;
+        animation: spin 2s linear infinite;
+      }
+      
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      </style>
+
+{%endblock%}
+

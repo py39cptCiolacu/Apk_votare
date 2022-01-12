@@ -16,16 +16,29 @@
         <title>{% block title %}HOME{% endblock %}</title>
 
         <style>
-          .backgroung-image{
-            
-            background-image: url('/static/images/debatex-01.png');
-            background-size: 100%;
-            background-repeat: no-repeat;
-            height : 800px;
+  
+          body, html {
+            height: 100%;
           }
-        
-        
-        </style>
+  
+          .backgroung-image {
+            /* The image used */
+            background-image: url('/static/images/debatex-08.jfif');
+  
+            /* Full height */
+            height: 100%;
+  
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+          }
+          
+          </style>
 
     </head>
 
