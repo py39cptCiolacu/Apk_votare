@@ -1,5 +1,13 @@
 from . import db
 
+class Ora(db.Model):
+    id = db.Column(db.Integer, primary_key = True)
+    ora = db.Column(db.String(150))
+
+    def __init__(self, ora):
+        self.ora = ora
+
+
 class Voturi(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     user_type = db.Column(db.String(50))

@@ -1,6 +1,12 @@
-from functools import cache
+
+from os import error
 from flask import Blueprint, render_template, request, redirect, flash, url_for, session, Flask
+from sqlalchemy.sql.expression import select
 from . import db
+from .models import Ora, Voturi
+from datetime import datetime
+import contextlib
+from sqlalchemy import MetaData
 
 
 auth = Blueprint('auth', __name__)
@@ -9,7 +15,7 @@ auth = Blueprint('auth', __name__)
 @auth.route('/login_jury', methods=['GET', 'POST'])
 def login_jury():
 
-    jurati = {"NumePrenume1" : "parola1", "NumePrenume2": "parola2"} 
+    jurati = {"NumePrenume1" : "parola1", "NumePrenume2": "parola2", "NumePrenume3": "parola3"} 
 
     if request.method == 'POST':
             id_juriu = request.form.get('id_juriu')
@@ -21,15 +27,6 @@ def login_jury():
                 flash('Incorrect password, try again.', category='error')
 
     return render_template("login_jury.html")
-
-
-#Publicul care este pe live. Se va retine ip-ul intr o baza de date, astfel putand sa voteze doar o singura data
-@auth.route('/login_public_online', methods = ['GET', 'POST'])
-def login_public_online():
-    
-    #redirectionarea se face din html
-
-    return render_template("login_public_online.html")
 
 
 # Publicul care este in sala. Va primi parola la intrare in sala. Se vor genera ininte un numar n de parole
@@ -45,8 +42,10 @@ def login_public():
             if parola in content_parole:
                 session['parola'] = parola
                 return redirect(url_for('views.voting_public_sala'))
-            elif parola == "suntADMIN89":
+            elif parola == "adminSetareTimp":
                 return redirect(url_for('auth.adminCPT'))
+            elif parola == "adminResetareBaza":
+                return redirect(url_for('auth.adminCPT2'))
             else:
                 flash('Parola incorecta, incearca din nou', category='error')
 
@@ -59,7 +58,31 @@ def adminCPT():
     #voi seta timpul maxim de votare
 
     if request.method == 'POST':
-        ora = request.form.get('ora')
-        session['ora'] = ora
+        db.session.add(Ora(ora = request.form.get('ora')))
+        db.session.commit()
 
-    return render_template('admin.html')
+    max_time = Ora.query.all()
+
+    try:
+        max_time = max_time[-1]
+        max_time = max_time.ora
+    except IndexError:
+        max_time = "nu ai setat nimic"
+ 
+
+    return render_template('admin.html', x=max_time)
+
+
+@auth.route('/adminCPT2', methods = ['GET', 'POST'])
+def adminCPT2():
+
+    if request.method == 'POST':
+        resetare = request.form.get('resetare')
+        if resetare == "RESETEAZA-BAZA":
+            Voturi.query.delete()
+            db.session.commit()
+        else:
+            flash('Ai introdus gresit', category='error')    
+
+    return render_template('admin2.html')
+

@@ -1,6 +1,6 @@
 {% extends "base.html" %} {% block title %} ADMIN {% endblock %} {% block content%}
 
-<h1> TIMPUL SETAT ESTE:  <h1>
+<h1> TIMPUL SETAT ESTE: {{x}}  <h1>
 
     <form method="POST">
     <input
@@ -10,8 +10,11 @@
           name="ora"
           placeholder="ORA START:"
         />
+        <br>
         <button type="submit" class="btn btn-primary">Seteaza timpul</button>
     </form>
+
+    
     
 
 {% endblock %}

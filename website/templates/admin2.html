@@ -1,0 +1,17 @@
+{% extends "base.html" %} {% block title %} ADMIN {% endblock %} {% block content%}
+
+
+<form method="POST">
+    <input
+          type="text"
+          class="form-control"
+          id="resetare"
+          name="resetare"
+          placeholder="RESETAREA BAZEI"
+        />
+        <br>
+        <button type="submit" class="btn btn-primary">Reseteaza baza</button>
+    </form>
+
+
+{%endblock%}
