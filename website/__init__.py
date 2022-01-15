@@ -5,7 +5,7 @@ from os import path
 
 
 db = SQLAlchemy()
-DB_NAME = "baza2.db"
+DB_NAME = "baza3.db"
 
 def create_app():
 

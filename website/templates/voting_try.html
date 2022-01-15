@@ -1,9 +1,9 @@
-{% extends "base.html" %} {% block title %}Results{% endblock %} 
-{% block content%}
-<br>
+{% extends "base.html" %} {% block title %} ADMIN {% endblock %} {% block content%}
+
+
 <section>
 	<div class="container py-5">
-  
+
 	  <!-- FOR DEMO PURPOSE -->
 	  <header class="text-center mb-5 text-white">
 		<div class="row">
@@ -13,48 +13,59 @@
 		</div>
 	  </header>
 	  <!-- END -->
-  
-  
-  
+
+
+
 	  <div class="row text-center align-items-end">
 		<!-- Pricing Table-->
+		<div class="col-lg-2 mb-5 mb-lg-0"> </div>
+
 		<div class="col-lg-4 mb-5 mb-lg-0">
 		  <div class="bg-white p-4 rounded-lg shadow">
-			<h2 class="h1 font-weight-bold">Echipa 1</h2>
-  
+			<h2 class="h1 font-weight-bold">Guvern</h2>
+
 			<div class="custom-separator my-4 mx-auto bg-primary"></div>
-  
+
 			<ul class="list-unstyled my-5 text-medium text-center">
 			  <li class="mb-3">
-				<i class="fa mr-2 text-primary"></i> Punctaj juriu  {{rj1}}</li>
+				<i class="fa mr-2 text-primary"></i> {{m1e1}}</li>
 			  <li class="mb-3">
-				<i class="fa mr-2 text-primary"></i> Punctaj public  {{rp1}}</li> <br>
+				<i class="fa mr-2 text-primary"></i> {{m2e1}} </li>
 			  <li class="mb-3">
-				<i class="fa mr-2 text-primary"></i> <b>PUNCTAJ TOTAL  {{rt1}}</b></li>
+				<i class="fa mr-2 text-primary"></i> {{m3e1}} </li>
 			</ul>
+      <a href="/voting_echipa1" class="btn btn-primary btn-block p-2 shadow rounded-pill">Voteaza</a>
 		  </div>
 		</div>
 		<!-- END -->
-  
-  
+
+
 		<!-- Pricing Table-->
 		<div class="col-lg-4 mb-5 mb-lg-0">
 		  <div class="bg-white p-4 rounded-lg shadow">
-			<h2 class="h1 font-weight-bold">Echipa 2</h2>
-  
+			<h2 class="h1 font-weight-bold">Opoziție</h2>
+
 			<div class="custom-separator my-4 mx-auto bg-primary"></div>
-  
+
 			<ul class="list-unstyled my-5 text-medium text-center font-weight-normal">
 			  <li class="mb-3">
-				<i class="fa mr-2 text-primary"></i> Punctaj juriu : {{rj2}}</li>
+				<i class="fa mr-2 text-primary"></i> {{m1e2}}</li>
 			  <li class="mb-3">
-				<i class="fa mr-2 text-primary"></i> Punctaj public : {{rp2}}</li> <br>
+				<i class="fa mr-2 text-primary"></i>{{m2e2}}</li>
 			  <li class="mb-3">
-				<i class="fa mr-2 text-primary"></i> <b>PUNCTAJ TOTAL : {{rt2}} </b></li>
+				<i class="fa mr-2 text-primary"></i>  {{m3e2}} </li>
 			</ul>
+      <a href="/voting_echipa2" class="btn btn-primary btn-block p-2 shadow rounded-pill">Voteaza</a>
 		</div>
+
+		<div class="col-lg-2 mb-5 mb-lg-0"> </div>
 		<!-- END -->
-  
+
+	  </div>
+	</div>
+  </section>
+
+
 	  </div>
 	</div>
   </section>
@@ -109,4 +120,4 @@ body {
 
 </style>
 
-{% endblock %}
+{%endblock%}

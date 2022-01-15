@@ -25,3 +25,11 @@ class Voturi(db.Model):
         self.jurat = jurat
         self.timp = timp
 
+class Participanti(db.Model):
+    id = db.Column(db.Integer, primary_key = True)
+    participanti = db.Column(db.String(300))
+
+    def __init__(self, participanti):
+        self.participanti = participanti
+
+

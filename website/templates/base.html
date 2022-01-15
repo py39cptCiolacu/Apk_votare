@@ -1,5 +1,7 @@
 <html>
-    <head>   
+    <head>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
@@ -14,20 +16,20 @@
       crossorigin="anonymous"
     />
         <title>{% block title %}HOME{% endblock %}</title>
-
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <style>
-  
+
           body, html {
             height: 100%;
           }
-  
+
           .backgroung-image {
             /* The image used */
             background-image: url('/static/images/debatex-08.jfif');
-  
+
             /* Full height */
             height: 100%;
-  
+
             /* Center and scale the image nicely */
             background-position: center;
             background-repeat: no-repeat;
@@ -36,8 +38,37 @@
             -moz-background-size: cover;
             -o-background-size: cover;
             background-size: cover;
+            background-color: rgba(21,205,255);
           }
-          
+
+          @media only screen and (max-width: 425px){
+
+            body, html {
+            height: 100%;
+          }
+
+          .backgroung-image {
+            /* The image used */
+            background-image: url('/static/images/debatex-mobile.png');
+
+            /* Full height */
+            height: 100%;
+
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            background-color: rgba(21,205,255);
+          }
+
+
+
+          }
+
           </style>
 
     </head>
@@ -45,13 +76,13 @@
 
     <body>
 
-      <div class = "backgroung-image"> 
+      <div class = "backgroung-image">
 
       {% with messages = get_flashed_messages(with_categories=true) %} {% if
         messages %} {% for category, message in messages %} {% if category ==
         'error' %}
         <div class="alert alert-danger alter-dismissable fade show" role="alert">
-          {{ message }}
+        {{ message }}
           <button type="button" class="close" data-dismiss="alert">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -81,23 +112,26 @@
           src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
           integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
           crossorigin="anonymous"
-        ></script> 
+        ></script>
         <!-- <script
           type="text/javascript"
           src="{{ url_for('static', filename='index.js') }}"
         ></script> -->
 
         <!-- HTML !-->
-<a href="/"> <button class="button-25" role="button">HOME</button> </a>>
+<a href="/"> <button class="button-25" role="button">HOME</button> </a>
 
 <style>
+*{
+  font-family: 'Lato', sans-serif;
+  font-family: 'Oswald', sans-serif;
+}
 .button-25 {
-  background-color: #36A9AE;
-  background-image: linear-gradient(#37ADB2, #329CA0);
-  border: 1px solid #2A8387;
+  background-color: rgba(21,205,255);
+  background-image: linear-gradient(rgba(21,205,255),rgba(21,205,255));
+  border: 0px solid rgba(21,205,255);
   border-radius: 4px;
-  box-shadow: rgba(0, 0, 0, 0.12) 0 1px 1px;
-  color: #FFFFFF;
+  color: #ffffff;
   cursor: pointer;
   display: block;
   font-family: -apple-system,".SFNSDisplay-Regular","Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -112,6 +146,56 @@
   -webkit-user-select: none;
   touch-action: manipulation;
   width: 10%;
+  height: 8%;
+  position:absolute;
+  left:0;
+  top:0;
+}
+
+.button-25:hover {
+  box-shadow: rgba(255, 255, 255, 0.3) 0 0 2px inset, rgba(0, 0, 0, 0.4) 0 1px 2px;
+  text-decoration: none;
+  transition-duration: .15s, .15s;
+}
+
+.button-25:active {
+  box-shadow: rgba(0, 0, 0, 0.15) 0 2px 4px inset, rgba(0, 0, 0, 0.4) 0 1px 1px;
+}
+
+.button-25:disabled {
+  cursor: not-allowed;
+  opacity: .6;
+}
+
+.button-25:disabled:active {
+  pointer-events: none;
+}
+
+.button-25:disabled:hover {
+  box-shadow: none;
+}
+
+@media only screen and (max-width: 425px){
+  .button-25 {
+  background-color:  rgba(21,205,255);
+  background-image: linear-gradient( rgba(21,205,255),  rgba(21,205,255));
+  border: 0px solid rgba(21,205,255);
+  border-radius: 4px;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: block;
+  font-family: -apple-system,".SFNSDisplay-Regular","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 17px;
+  line-height: 100%;
+  margin: 0;
+  outline: 0;
+  padding: 11px 15px 12px;
+  text-align: center;
+  transition: box-shadow .05s ease-in-out,opacity .05s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 30%;
   position:absolute;
   left:0;
   bottom:0;
@@ -138,13 +222,17 @@
 
 .button-25:disabled:hover {
   box-shadow: none;
+
+
+}
+*{
+  font-family: 'Lato', sans-serif;
+  font-family: 'Oswald', sans-serif;
+}
 }
 </style>
-      
+
 </div>
   </body>
-
-
-
 
 </html>

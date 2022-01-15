@@ -8,7 +8,7 @@ cifre = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
 def generator():
     parole = open('parole.txt', 'w+')
 
-    numar_parole =  20
+    numar_parole =  50
 
     parola = ''
     for i in range(numar_parole):
