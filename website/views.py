@@ -281,10 +281,10 @@ def verificare_ora(vot_time):
 
     ora_vot = (int(vot_time[0:2])+2)%24
     min_vot = (int(vot_time[3:5])+2)%24
-    sec_vot = (int(vot_time[6:8])+2)%24
-    ora_max = (int(max_time[0:2])+2)%24
-    min_max = (int(max_time[3:5])+2)%24
-    sec_max = (int(max_time[6:8])+2)%24
+    sec_vot = (int(vot_time[6:8])+2)%60
+    ora_max = (int(max_time[0:2])+2)%60
+    min_max = (int(max_time[3:5])+2)%60
+    sec_max = (int(max_time[6:8])+2)%60
 
 
     vot_time = datetime.time(ora_vot, min_vot, sec_vot)
